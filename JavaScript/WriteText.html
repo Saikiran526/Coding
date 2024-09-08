@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Write Text</title>
+        <style>
+            body {
+            background-image: url('images.jpg');
+            background-size: cover;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+            h1 {
+                font-size: 50px;
+                font-family: 'Courier New', Courier, monospace;
+                color: aliceblue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="addText"></h1>
+        <script >
+            const text=["When in doubt go to the library... !",
+            "The only thing that you absolutely have to know, is the location of the library... !",
+            "Nothing is pleasanter than exploring a library... !",
+            "I have always imagined that Paradise will be a kind of a Library... !"];
+
+            let currInd=0;
+            let i=0;
+            
+            function typing(){
+                if(currInd<text[i].length){
+                    document.getElementById('addText').innerHTML+=text[i].charAt(currInd++);
+                    setTimeout(typing,100);
+                }else{
+                   // console.log('else excicuted...');
+                    currInd=0;
+                    i++;
+                    //console.log(text[i]);
+                    if(i<text.length-1){
+                        //console.log('Entered into the if');
+                        setTimeout(()=>{document.getElementById('addText').innerHTML='';
+
+                                        typing();
+                        },1000);
+                    }
+                    else{
+                        currInd=0;
+                        i=0;
+                        document.getElementById('addText').innerHTML='';
+                        typing();
+                    }
+                }
+            };
+            typing();
+        </script>
+    </body>
+</html>
