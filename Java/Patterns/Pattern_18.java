@@ -11,13 +11,11 @@ public class Pattern_18 {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         for(int i=0;i<n;i++){
-            char c=(char)('A'+n-1-i);
-            for(int j=0;j<=i;j++){
-                System.out.print(c+" ");
-                c--;
+            char c=(char)('A'+n-1);
+            for(int j=(char)(c-i);j<=c;j++){
+                System.out.print((char)j+" ");
             }
             System.out.println();
-            // System.out.println((char)('A'+n-1));
         }
         sc.close();
     }
